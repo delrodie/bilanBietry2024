@@ -1,0 +1,15 @@
+.experiences{
+    
+
+    h1{
+        &.titre{
+            color: yellow;
+            font-size: 1.2rem;
+        }
+        
+        .icone{
+            width: 100px;
+            height: auto;
+        }
+    }
+}

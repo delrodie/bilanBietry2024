@@ -1,0 +1,36 @@
+.final{
+    h1{
+        &.titre{
+            color: yellow;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .icone{
+            width: 30px;
+            height: auto;
+            margin-right: 10px;
+        }
+    }
+
+    .resultat{
+        text-align: center;
+        font-weight: bold;
+        color: #006BB6;
+    }
+
+    .total{
+        font-weight: bold;
+        font-size: 0.8rem;
+        color: darkred;
+    }
+
+    h5{
+        font-size: 1rem;
+        margin: 0;
+        font-weight: bold;
+        color: #fff;
+    }
+}

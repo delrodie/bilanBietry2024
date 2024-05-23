@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2 d-none d-md-block">
+                    <img src="{{ absolute_url(asset('assets/images/logo-rab.png')) }}" alt="Logo ROtary Abidjan Bietry" class="img-fluid">
+                </div>
+                <div class="col-2 offset-md-8 d-none d-md-block">
+                    <img src="{{ absolute_url(asset('assets/images/T2425FR-Logo-RGB.png')) }}" alt="Rotary" class="img-fluid">
+                </div>
+            </div>
+            <div class="row d-md-none">
+                <div class="col-4 col-md-2 offset-4 offset-md-5 logo">
+                    <img src="{{ absolute_url(asset('assets/images/logo-rab.png')) }}" alt="Logo Rotary Abidjan Bietry" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="row d-md-none">
+            <div class="col-6 offset-3 theme">
+                <img src="{{ absolute_url(asset('assets/images/T2425FR-Logo-RGB.png')) }}" alt="Rotary Abidjan Bietry" class="img-fluid">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4 col-md-2 offset-4 offset-md-5 illustration">
+                <img src="{{ absolute_url(asset('assets/images/icones/cheklist.png')) }}" alt="" class="img-fluid">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 text-center">
+                <h1>Bilan de santé</h1>
+                <h2>Du Rotary club Abidjan Bietry</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-8 col-md-2 offset-2 offset-md-5 mt-5 d-grid gap-2">
+                <a href="#" class="btn btn-light btn-lg bouton">Commencez</a>
+            </div>
+        </div>
+    </main>
+{% endblock %}

@@ -1,0 +1,10 @@
+.experiences h1.titre {
+  color: yellow;
+  font-size: 1.2rem;
+}
+.experiences h1 .icone {
+  width: 100px;
+  height: auto;
+}
+
+/*# sourceMappingURL=experience.css.map */
