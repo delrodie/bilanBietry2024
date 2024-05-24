@@ -6,88 +6,100 @@ body {
   height: 100vh;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 7%, rgba(250, 201, 28, 0.5), rgba(2, 137, 151, 0.9)), url("/assets/images/abidjan.jpg") no-repeat center center;
   background-size: cover;
-}
+  background-attachment: fixed; }
 
 .bouton {
   font-weight: bold;
   padding: 15px 0;
-  color: #006BB6;
-}
+  color: #006BB6; }
 
 .bouton-muet {
-  color: #fff;
-}
+  color: #fff; }
 
 .btn-suiv {
   display: flex;
   justify-content: center;
-  align-items: center;
-}
+  align-items: center; }
 
 .btn-prec {
   display: flex;
   justify-content: center;
-  align-items: center;
-}
-.btn-prec .material-icons {
-  transform: rotate(180deg);
-  margin-right: 5px;
-}
+  align-items: center; }
+  .btn-prec .material-icons {
+    transform: rotate(180deg);
+    margin-right: 5px; }
 
 .choix {
   background: rgba(255, 255, 255, 0.7);
   padding: 5px 15px;
-  box-shadow: 5px 5px rgba(33, 33, 33, 0.1529411765);
-}
-.choix label {
-  font-weight: bold;
-}
-.choix .form-check {
-  display: flex;
-  align-items: center;
-}
-.choix .form-check input {
-  margin-right: 15px;
-  border: solid orangered 2px;
-}
-.choix.checked {
-  background: white;
-  box-shadow: 0 3px 10px rgba(255, 69, 0, 0.7);
-}
-.choix.checked input {
-  border: 0;
-}
+  box-shadow: 5px 5px #21212127; }
+  .choix label {
+    font-weight: bold; }
+  .choix .form-check {
+    display: flex;
+    align-items: center; }
+    .choix .form-check input {
+      margin-right: 15px;
+      border: solid orangered 2px; }
+  .choix.checked {
+    background: white;
+    box-shadow: 0 3px 10px rgba(255, 69, 0, 0.7); }
+    .choix.checked input {
+      border: 0; }
 
 .step {
   margin-top: 50px;
-  border: solid 1px #f00;
-}
-.step .badge {
-  border-radius: 50%;
-  font-size: 1.1rem;
-}
-.step .numerotation {
-  color: #fff;
-  font-size: 1.1rem;
-}
+  border: solid 1px #f00; }
+  .step .badge {
+    border-radius: 50%;
+    font-size: 1.1rem; }
+  .step .numerotation {
+    color: #fff;
+    font-size: 1.1rem; }
 
 h3 {
-  color: #fff;
-}
+  color: #fff; }
 
+#loader {
+  display: none;
+  /* Hide the loader by default */
+  position: fixed;
+  z-index: 9999;
+  /* Ensure the loader is above other elements */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.spinner {
+  border: 16px solid #f3f3f3;
+  /* Light grey */
+  border-top: 16px solid #3498db;
+  /* Blue */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite; }
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(360deg); } }
 main .theme {
-  margin-top: 50px;
-}
+  margin-top: 50px; }
 main .illustration {
-  margin-top: 50px;
-}
+  margin-top: 50px; }
 main h1 {
   color: yellow;
   font-size: 2.5rem;
   font-weight: 900;
   text-transform: uppercase;
-  font-family: "Roboto", sans-serif;
-}
+  font-family: "Roboto", sans-serif; }
 main h2 {
   color: #fff;
   font-size: 1.2rem;
@@ -97,45 +109,37 @@ main h2 {
   padding: 10px;
   margin: 0 auto;
   width: 85%;
-  font-family: "Roboto", sans-serif;
-}
+  font-family: "Roboto", sans-serif; }
 
 .experiences h1.titre {
   color: yellow;
-  font-size: 1.2rem;
-}
+  font-size: 1.2rem; }
 .experiences h1 .icone {
   width: 100px;
-  height: auto;
-}
+  height: auto; }
 
 .final h1.titre {
   color: yellow;
   font-size: 1.2rem;
   display: flex;
   align-items: center;
-  justify-content: center;
-}
+  justify-content: center; }
 .final h1 .icone {
   width: 30px;
   height: auto;
-  margin-right: 10px;
-}
+  margin-right: 10px; }
 .final .resultat {
   text-align: center;
   font-weight: bold;
-  color: #006BB6;
-}
+  color: #006BB6; }
 .final .total {
   font-weight: bold;
   font-size: 0.8rem;
-  color: darkred;
-}
+  color: darkred; }
 .final h5 {
   font-size: 1rem;
   margin: 0;
   font-weight: bold;
-  color: #fff;
-}
+  color: #fff; }
 
 /*# sourceMappingURL=app.css.map */

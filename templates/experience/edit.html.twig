@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Votre expérience dans le club{% endblock %}
+
+{% block body %}
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-6 col-md-2 offset-3 offset-md-5 logo">
+                    <img src="{{ absolute_url(asset('assets/images/logo-rab_theme.png')) }}" alt="" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="experiences">
+        <div class="container">
+            <row class="step">
+                <div class="col-12 text-center">
+                    <h3>Etape <span class="numerotation"> <span class="badge bg-danger">1</span> / <span class="badge bg-danger">5</span></span></h3>
+                </div>
+            </row>
+            <h1 class="titre text-center">
+                <img src="{{ absolute_url(asset('assets/images/icones/experiences.png')) }}" alt="" class="icone">
+                Votre expérience au sein du club
+            </h1>
+            {{ include('experience/_form.html.twig') }}
+{#            {{ include('experience/_delete_form.html.twig') }}#}
+        </div>
+    </main>
+
+
+
+{% endblock %}
+
+

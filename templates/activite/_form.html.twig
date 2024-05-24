@@ -1,0 +1,101 @@
+{{ form_start(form, {'attr': {'id': 'myForm'}}) }}
+<div class="form-group mt-5">
+    <div class="choix mt-2">
+        <div class="form-check">
+            {{ form_widget(form.q1) }}
+            {{ form_label(form.q1, 'activite.q1'|trans, {'label_attr':{'class':'form-check-label'}}) }}
+        </div>
+    </div>
+    <div class="choix mt-2">
+        <div class="form-check">
+            {{ form_widget(form.q2) }}
+            {{ form_label(form.q2, 'activite.q2'|trans, {'label_attr':{'class':'form-check-label'}}) }}
+        </div>
+    </div>
+    <div class="choix mt-2">
+        <div class="form-check">
+            {{ form_widget(form.q3) }}
+            {{ form_label(form.q3, 'activite.q3'|trans, {'label_attr':{'class':'form-check-label'}}) }}
+        </div>
+    </div>
+    <div class="choix mt-2">
+        <div class="form-check">
+            {{ form_widget(form.q4) }}
+            {{ form_label(form.q4, 'activite.q4'|trans, {'label_attr':{'class':'form-check-label'}}) }}
+        </div>
+    </div>
+    <div class="choix mt-2">
+        <div class="form-check">
+            {{ form_widget(form.q5) }}
+            {{ form_label(form.q5, 'activite.q5'|trans, {'label_attr':{'class':'form-check-label'}}) }}
+        </div>
+    </div>
+    <div class="choix mt-2">
+        <div class="form-check">
+            {{ form_widget(form.q6) }}
+            {{ form_label(form.q6, 'activite.q6'|trans, {'label_attr':{'class':'form-check-label'}}) }}
+        </div>
+    </div>
+    <div class="choix mt-2">
+        <div class="form-check">
+            {{ form_widget(form.q7) }}
+            {{ form_label(form.q7, 'activite.q7'|trans, {'label_attr':{'class':'form-check-label'}}) }}
+        </div>
+    </div>
+    <div class="choix mt-2">
+        <div class="form-check">
+            {{ form_widget(form.q8) }}
+            {{ form_label(form.q8, 'activite.q8'|trans, {'label_attr':{'class':'form-check-label'}}) }}
+        </div>
+    </div>
+    <div class="choix mt-2">
+        <div class="form-check">
+            {{ form_widget(form.q9) }}
+            {{ form_label(form.q9, 'experience.q9'|trans, {'label_attr':{'class':'form-check-label'}}) }}
+        </div>
+    </div>
+    <div class="choix mt-2">
+        <div class="form-check">
+            {{ form_widget(form.q10) }}
+            {{ form_label(form.q10, 'activite.q10'|trans, {'label_attr':{'class':'form-check-label'}}) }}
+        </div>
+    </div>
+    <div class="choix mt-2">
+        <div class="form-check">
+            {{ form_widget(form.q11) }}
+            {{ form_label(form.q11, 'activite.q11'|trans, {'label_attr':{'class':'form-check-label'}}) }}
+        </div>
+    </div>
+    <div class="choix mt-2">
+        <div class="form-check">
+            {{ form_widget(form.q12) }}
+            {{ form_label(form.q12, 'activite.q12'|trans, {'label_attr':{'class':'form-check-label'}}) }}
+        </div>
+    </div>
+    <div class="choix mt-2">
+        <div class="form-check">
+            {{ form_widget(form.q13) }}
+            {{ form_label(form.q13, 'activite.q13'|trans, {'label_attr':{'class':'form-check-label'}}) }}
+        </div>
+    </div>
+
+</div>
+<div class="row text-center mt-5">
+    <div class="col-6 d-grid gap-2">
+        <a href="{{ absolute_url(path('app_experience_edit',{'id': experience_id})) }}" class="btn btn-outline-light bouton bouton-muet btn-prec">
+            <span class="material-icons">double_arrow</span> Retour
+        </a>
+    </div>
+    <div class="col-6 d-grid gap-2">
+        <button class="btn btn-light bouton btn-suiv">
+            Suivant  <span class="material-icons">double_arrow</span>
+        </button>
+    </div>
+</div>
+{{ form_widget(form) }}
+
+{{ form_end(form) }}
+<div id="loader">
+    <div class="spinner"></div>
+</div>
+

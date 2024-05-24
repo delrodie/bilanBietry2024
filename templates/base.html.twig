@@ -15,6 +15,28 @@
 
         {% block javascripts %}
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+            <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                    const checkboxes = document.querySelectorAll('.form-check-input');
+                    document.getElementById('loader').style.display = 'none';
+
+                    checkboxes.forEach(checkbox => {
+                        checkbox.addEventListener('change', function () {
+                            const choixDiv = this.closest('.choix');
+                            if (this.checked) {
+                                choixDiv.classList.add('checked');
+                            } else {
+                                choixDiv.classList.remove('checked');
+                            }
+                        });
+                    });
+
+                    document.getElementById('myForm').addEventListener('submit', function() {
+                        document.getElementById('loader').style.display = 'flex';
+                        this.querySelector('button[type="submit"]').disabled = true;
+                    });
+                });
+            </script>
         {% endblock %}
     </body>
 </html>
