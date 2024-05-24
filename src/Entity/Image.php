@@ -2,11 +2,11 @@
 
 namespace App\Entity;
 
-use App\Repository\MembreRepository;
+use App\Repository\ImageRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: MembreRepository::class)]
-class Membre
+#[ORM\Entity(repositoryClass: ImageRepository::class)]
+class Image
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -59,13 +59,10 @@ class Membre
     private ?bool $q15 = null;
 
     #[ORM\Column(nullable: true)]
-    private ?int $flag = null;
+    private ?int $flage = null;
 
-    #[ORM\OneToOne(inversedBy: 'membre', cascade: ['persist', 'remove'])]
-    private ?Activite $activite = null;
-
-    #[ORM\OneToOne(mappedBy: 'membre', cascade: ['persist', 'remove'])]
-    private ?Image $image = null;
+    #[ORM\OneToOne(inversedBy: 'image', cascade: ['persist', 'remove'])]
+    private ?Membre $membre = null;
 
     public function getId(): ?int
     {
@@ -252,48 +249,26 @@ class Membre
         return $this;
     }
 
-    public function getFlag(): ?int
+    public function getFlage(): ?int
     {
-        return $this->flag;
+        return $this->flage;
     }
 
-    public function setFlag(?int $flag): static
+    public function setFlage(?int $flage): static
     {
-        $this->flag = $flag;
+        $this->flage = $flage;
 
         return $this;
     }
 
-    public function getActivite(): ?Activite
+    public function getMembre(): ?Membre
     {
-        return $this->activite;
+        return $this->membre;
     }
 
-    public function setActivite(?Activite $activite): static
+    public function setMembre(?Membre $membre): static
     {
-        $this->activite = $activite;
-
-        return $this;
-    }
-
-    public function getImage(): ?Image
-    {
-        return $this->image;
-    }
-
-    public function setImage(?Image $image): static
-    {
-        // unset the owning side of the relation if necessary
-        if ($image === null && $this->image !== null) {
-            $this->image->setMembre(null);
-        }
-
-        // set the owning side of the relation if necessary
-        if ($image !== null && $image->getMembre() !== $this) {
-            $image->setMembre($this);
-        }
-
-        $this->image = $image;
+        $this->membre = $membre;
 
         return $this;
     }

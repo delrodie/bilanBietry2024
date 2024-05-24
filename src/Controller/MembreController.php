@@ -32,11 +32,12 @@ class MembreController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $activiteEntity = $activiteRepository->findOneBy(['id' => $activite]);
+            $membre->setActivite($activiteEntity);
             $entityManager->persist($membre);
             $entityManager->flush();
 
-            return $this->redirectToRoute('app_membre_new', [
-                'activite' => $activite
+            return $this->redirectToRoute('app_image_new', [
+                'membre' => $membre->getId()
             ], Response::HTTP_SEE_OTHER);
         }
 
@@ -64,7 +65,9 @@ class MembreController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->flush();
 
-            return $this->redirectToRoute('app_membre_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_image_new', [
+                'membre' => $membre->getId()
+            ], Response::HTTP_SEE_OTHER);
         }
 
         return $this->render('membre/edit.html.twig', [
