@@ -2,11 +2,11 @@
 
 namespace App\Entity;
 
-use App\Repository\ActiviteRepository;
+use App\Repository\MembreRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: ActiviteRepository::class)]
-class Activite
+#[ORM\Entity(repositoryClass: MembreRepository::class)]
+class Membre
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -61,11 +61,8 @@ class Activite
     #[ORM\Column(nullable: true)]
     private ?int $flag = null;
 
-    #[ORM\OneToOne(inversedBy: 'activite', cascade: ['persist', 'remove'])]
-    private ?Experience $experience = null;
-
-    #[ORM\OneToOne(mappedBy: 'activite', cascade: ['persist', 'remove'])]
-    private ?Membre $membre = null;
+    #[ORM\OneToOne(inversedBy: 'membre', cascade: ['persist', 'remove'])]
+    private ?Activite $activite = null;
 
     public function getId(): ?int
     {
@@ -264,36 +261,14 @@ class Activite
         return $this;
     }
 
-    public function getExperience(): ?Experience
+    public function getActivite(): ?Activite
     {
-        return $this->experience;
+        return $this->activite;
     }
 
-    public function setExperience(?Experience $experience): static
+    public function setActivite(?Activite $activite): static
     {
-        $this->experience = $experience;
-
-        return $this;
-    }
-
-    public function getMembre(): ?Membre
-    {
-        return $this->membre;
-    }
-
-    public function setMembre(?Membre $membre): static
-    {
-        // unset the owning side of the relation if necessary
-        if ($membre === null && $this->membre !== null) {
-            $this->membre->setActivite(null);
-        }
-
-        // set the owning side of the relation if necessary
-        if ($membre !== null && $membre->getActivite() !== $this) {
-            $membre->setActivite($this);
-        }
-
-        $this->membre = $membre;
+        $this->activite = $activite;
 
         return $this;
     }

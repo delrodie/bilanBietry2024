@@ -1,0 +1,86 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Membre{% endblock %}
+
+{% block body %}
+    <h1>Membre</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ membre.id }}</td>
+            </tr>
+            <tr>
+                <th>Q1</th>
+                <td>{{ membre.q1 ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Q2</th>
+                <td>{{ membre.q2 ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Q3</th>
+                <td>{{ membre.q3 ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Q4</th>
+                <td>{{ membre.q4 ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Q5</th>
+                <td>{{ membre.q5 ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Q6</th>
+                <td>{{ membre.q6 ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Q7</th>
+                <td>{{ membre.q7 ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Q8</th>
+                <td>{{ membre.q8 ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Q9</th>
+                <td>{{ membre.q9 ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Q10</th>
+                <td>{{ membre.q10 ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Q11</th>
+                <td>{{ membre.q11 ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Q12</th>
+                <td>{{ membre.q12 ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Q13</th>
+                <td>{{ membre.q13 ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Q14</th>
+                <td>{{ membre.q14 ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Q15</th>
+                <td>{{ membre.q15 ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Flag</th>
+                <td>{{ membre.flag }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_membre_index') }}">back to list</a>
+
+    <a href="{{ path('app_membre_edit', {'id': membre.id}) }}">edit</a>
+
+    {{ include('membre/_delete_form.html.twig') }}
+{% endblock %}

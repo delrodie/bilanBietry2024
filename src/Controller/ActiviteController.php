@@ -36,8 +36,8 @@ class ActiviteController extends AbstractController
             $entityManager->persist($activite);
             $entityManager->flush();
 
-            return $this->redirectToRoute('app_activite_new', [
-                'experience' => $experience
+            return $this->redirectToRoute('app_membre_new', [
+                'activite' => $activite->getId()
             ], Response::HTTP_SEE_OTHER);
         }
 
@@ -65,7 +65,9 @@ class ActiviteController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->flush();
 
-            return $this->redirectToRoute('app_activite_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_membre_new', [
+                'activite' => $activite->getId()
+            ], Response::HTTP_SEE_OTHER);
         }
 
         return $this->render('activite/edit.html.twig', [

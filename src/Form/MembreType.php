@@ -3,21 +3,17 @@
 namespace App\Form;
 
 use App\Entity\Activite;
-use App\Entity\Experience;
-use Doctrine\ORM\EntityRepository;
+use App\Entity\Membre;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class ActiviteType extends AbstractType
+class MembreType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
-//        $this->experience = $options['experience'];
-//        $experience = $this->experience;
-
         $builder
             ->add('q1', CheckboxType::class,['attr'=>['class'=>'form-check-input'], 'required' => false])
             ->add('q2', CheckboxType::class,['attr'=>['class'=>'form-check-input'], 'required' => false])
@@ -35,15 +31,9 @@ class ActiviteType extends AbstractType
             ->add('q14', CheckboxType::class,['attr'=>['class'=>'form-check-input'], 'required' => false])
             ->add('q15', CheckboxType::class,['attr'=>['class'=>'form-check-input'], 'required' => false])
 //            ->add('flag')
-//            ->add('experience', EntityType::class, [
-//                'class' => Experience::class,
+//            ->add('activite', EntityType::class, [
+//                'class' => Activite::class,
 //                'choice_label' => 'id',
-//                'query_builder' => function (EntityRepository $er) use ($experience) {
-//                    return $er->createQueryBuilder('e')->where('e.id = :experience')->setParameter('experience', $experience);
-//                },
-//                'label' => '',
-//                'required' => true,
-//                'multiple' => false
 //            ])
         ;
     }
@@ -51,8 +41,7 @@ class ActiviteType extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Activite::class,
-//            'experience' => null
+            'data_class' => Membre::class,
         ]);
     }
 }

@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Membre index{% endblock %}
+
+{% block body %}
+    <h1>Membre index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Q1</th>
+                <th>Q2</th>
+                <th>Q3</th>
+                <th>Q4</th>
+                <th>Q5</th>
+                <th>Q6</th>
+                <th>Q7</th>
+                <th>Q8</th>
+                <th>Q9</th>
+                <th>Q10</th>
+                <th>Q11</th>
+                <th>Q12</th>
+                <th>Q13</th>
+                <th>Q14</th>
+                <th>Q15</th>
+                <th>Flag</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for membre in membres %}
+            <tr>
+                <td>{{ membre.id }}</td>
+                <td>{{ membre.q1 ? 'Yes' : 'No' }}</td>
+                <td>{{ membre.q2 ? 'Yes' : 'No' }}</td>
+                <td>{{ membre.q3 ? 'Yes' : 'No' }}</td>
+                <td>{{ membre.q4 ? 'Yes' : 'No' }}</td>
+                <td>{{ membre.q5 ? 'Yes' : 'No' }}</td>
+                <td>{{ membre.q6 ? 'Yes' : 'No' }}</td>
+                <td>{{ membre.q7 ? 'Yes' : 'No' }}</td>
+                <td>{{ membre.q8 ? 'Yes' : 'No' }}</td>
+                <td>{{ membre.q9 ? 'Yes' : 'No' }}</td>
+                <td>{{ membre.q10 ? 'Yes' : 'No' }}</td>
+                <td>{{ membre.q11 ? 'Yes' : 'No' }}</td>
+                <td>{{ membre.q12 ? 'Yes' : 'No' }}</td>
+                <td>{{ membre.q13 ? 'Yes' : 'No' }}</td>
+                <td>{{ membre.q14 ? 'Yes' : 'No' }}</td>
+                <td>{{ membre.q15 ? 'Yes' : 'No' }}</td>
+                <td>{{ membre.flag }}</td>
+                <td>
+                    <a href="{{ path('app_membre_show', {'id': membre.id}) }}">show</a>
+                    <a href="{{ path('app_membre_edit', {'id': membre.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="18">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_membre_new') }}">Create new</a>
+{% endblock %}
