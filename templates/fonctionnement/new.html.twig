@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Image{% endblock %}
+{% block title %}Gestion et fonctionnement{% endblock %}
 
 {% block body %}
     <header>
@@ -16,14 +16,14 @@
         <div class="container">
             <row class="step">
                 <div class="col-12 text-center">
-                    <h3>Etape <span class="numerotation"> <span class="badge bg-danger">4</span> / <span class="badge bg-danger">5</span></span></h3>
+                    <h3>Etape <span class="numerotation"> <span class="badge bg-danger">5</span> / <span class="badge bg-danger">5</span></span></h3>
                 </div>
             </row>
             <h1 class="titre text-center">
-                <img src="{{ absolute_url(asset('assets/images/icones/image.png')) }}" alt="" class="icone">
-                Image
+                <img src="{{ absolute_url(asset('assets/images/icones/fonctionnement.png')) }}" alt="" class="icone">
+                Gestion et fonctionnement
             </h1>
-            {{ include('image/_form.html.twig') }}
+            {{ include('fonctionnement/_form.html.twig') }}
         </div>
     </main>
 

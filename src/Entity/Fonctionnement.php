@@ -2,11 +2,11 @@
 
 namespace App\Entity;
 
-use App\Repository\ImageRepository;
+use App\Repository\FonctionnementRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: ImageRepository::class)]
-class Image
+#[ORM\Entity(repositoryClass: FonctionnementRepository::class)]
+class Fonctionnement
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -59,13 +59,10 @@ class Image
     private ?bool $q15 = null;
 
     #[ORM\Column(nullable: true)]
-    private ?int $flage = null;
+    private ?int $flag = null;
 
-    #[ORM\OneToOne(inversedBy: 'image', cascade: ['persist', 'remove'])]
-    private ?Membre $membre = null;
-
-    #[ORM\OneToOne(mappedBy: 'image', cascade: ['persist', 'remove'])]
-    private ?Fonctionnement $fonctionnement = null;
+    #[ORM\OneToOne(inversedBy: 'fonctionnement', cascade: ['persist', 'remove'])]
+    private ?Image $image = null;
 
     public function getId(): ?int
     {
@@ -252,48 +249,26 @@ class Image
         return $this;
     }
 
-    public function getFlage(): ?int
+    public function getFlag(): ?int
     {
-        return $this->flage;
+        return $this->flag;
     }
 
-    public function setFlage(?int $flage): static
+    public function setFlag(?int $flag): static
     {
-        $this->flage = $flage;
+        $this->flag = $flag;
 
         return $this;
     }
 
-    public function getMembre(): ?Membre
+    public function getImage(): ?Image
     {
-        return $this->membre;
+        return $this->image;
     }
 
-    public function setMembre(?Membre $membre): static
+    public function setImage(?Image $image): static
     {
-        $this->membre = $membre;
-
-        return $this;
-    }
-
-    public function getFonctionnement(): ?Fonctionnement
-    {
-        return $this->fonctionnement;
-    }
-
-    public function setFonctionnement(?Fonctionnement $fonctionnement): static
-    {
-        // unset the owning side of the relation if necessary
-        if ($fonctionnement === null && $this->fonctionnement !== null) {
-            $this->fonctionnement->setImage(null);
-        }
-
-        // set the owning side of the relation if necessary
-        if ($fonctionnement !== null && $fonctionnement->getImage() !== $this) {
-            $fonctionnement->setImage($this);
-        }
-
-        $this->fonctionnement = $fonctionnement;
+        $this->image = $image;
 
         return $this;
     }

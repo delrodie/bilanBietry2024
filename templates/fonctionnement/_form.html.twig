@@ -1,0 +1,112 @@
+{{ form_start(form, {'attr': {'id': 'myForm'}}) }}
+<div class="form-group mt-5">
+    <div class="choix mt-2">
+        <div class="form-check">
+            {{ form_widget(form.q1) }}
+            {{ form_label(form.q1, 'fonctionnement.q1'|trans, {'label_attr':{'class':'form-check-label'}}) }}
+        </div>
+    </div>
+    <div class="choix mt-2">
+        <div class="form-check">
+            {{ form_widget(form.q2) }}
+            {{ form_label(form.q2, 'fonctionnement.q2'|trans, {'label_attr':{'class':'form-check-label'}}) }}
+        </div>
+    </div>
+    <div class="choix mt-2">
+        <div class="form-check">
+            {{ form_widget(form.q3) }}
+            {{ form_label(form.q3, 'fonctionnement.q3'|trans, {'label_attr':{'class':'form-check-label'}}) }}
+        </div>
+    </div>
+    <div class="choix mt-2">
+        <div class="form-check">
+            {{ form_widget(form.q4) }}
+            {{ form_label(form.q4, 'fonctionnement.q4'|trans, {'label_attr':{'class':'form-check-label'}}) }}
+        </div>
+    </div>
+    <div class="choix mt-2">
+        <div class="form-check">
+            {{ form_widget(form.q5) }}
+            {{ form_label(form.q5, 'fonctionnement.q5'|trans, {'label_attr':{'class':'form-check-label'}}) }}
+        </div>
+    </div>
+    <div class="choix mt-2">
+        <div class="form-check">
+            {{ form_widget(form.q6) }}
+            {{ form_label(form.q6, 'fonctionnement.q6'|trans, {'label_attr':{'class':'form-check-label'}}) }}
+        </div>
+    </div>
+    <div class="choix mt-2">
+        <div class="form-check">
+            {{ form_widget(form.q7) }}
+            {{ form_label(form.q7, 'fonctionnement.q7'|trans, {'label_attr':{'class':'form-check-label'}}) }}
+        </div>
+    </div>
+    <div class="choix mt-2">
+        <div class="form-check">
+            {{ form_widget(form.q8) }}
+            {{ form_label(form.q8, 'fonctionnement.q8'|trans, {'label_attr':{'class':'form-check-label'}}) }}
+        </div>
+    </div>
+    <div class="choix mt-2">
+        <div class="form-check">
+            {{ form_widget(form.q9) }}
+            {{ form_label(form.q9, 'fonctionnement.q9'|trans, {'label_attr':{'class':'form-check-label'}}) }}
+        </div>
+    </div>
+    <div class="choix mt-2">
+        <div class="form-check">
+            {{ form_widget(form.q10) }}
+            {{ form_label(form.q10, 'fonctionnement.q10'|trans, {'label_attr':{'class':'form-check-label'}}) }}
+        </div>
+    </div>
+    <div class="choix mt-2">
+        <div class="form-check">
+            {{ form_widget(form.q11) }}
+            {{ form_label(form.q11, 'fonctionnement.q11'|trans, {'label_attr':{'class':'form-check-label'}}) }}
+        </div>
+    </div>
+    <div class="choix mt-2">
+        <div class="form-check">
+            {{ form_widget(form.q12) }}
+            {{ form_label(form.q12, 'fonctionnement.q12'|trans, {'label_attr':{'class':'form-check-label'}}) }}
+        </div>
+    </div>
+    <div class="choix mt-2">
+        <div class="form-check">
+            {{ form_widget(form.q13) }}
+            {{ form_label(form.q13, 'fonctionnement.q13'|trans, {'label_attr':{'class':'form-check-label'}}) }}
+        </div>
+    </div>
+    <div class="choix mt-2">
+        <div class="form-check">
+            {{ form_widget(form.q14) }}
+            {{ form_label(form.q14, 'fonctionnement.q14'|trans, {'label_attr':{'class':'form-check-label'}}) }}
+        </div>
+    </div>
+    <div class="choix mt-2">
+        <div class="form-check">
+            {{ form_widget(form.q15) }}
+            {{ form_label(form.q15, 'fonctionnement.q15'|trans, {'label_attr':{'class':'form-check-label'}}) }}
+        </div>
+    </div>
+</div>
+<div class="row text-center mt-5">
+    <div class="col-6 d-grid gap-2">
+        <a href="{{ absolute_url(path('app_image_edit',{'id': image_id})) }}" class="btn btn-outline-light bouton bouton-muet btn-prec">
+            <span class="material-icons">double_arrow</span> Retour
+        </a>
+    </div>
+    <div class="col-6 d-grid gap-2">
+        <button class="btn btn-light bouton btn-suiv">
+            Valider
+        </button>
+    </div>
+</div>
+{{ form_widget(form) }}
+
+{{ form_end(form) }}
+<div id="loader">
+    <div class="spinner"></div>
+</div>
+

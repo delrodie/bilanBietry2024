@@ -32,12 +32,12 @@ class ImageController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $membreEntity = $membreRepository->findOneBy(['id' => $membre]);
-            $image->setMembre($membreEntity);
+            $image->setMembre($membreEntity); //dd($image);
             $entityManager->persist($image);
             $entityManager->flush();
 
-            return $this->redirectToRoute('app_image_new', [
-                'membre' => $membre
+            return $this->redirectToRoute('app_fonctionnement_new', [
+                'image' => $image->getId()
             ], Response::HTTP_SEE_OTHER);
         }
 
@@ -65,12 +65,15 @@ class ImageController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->flush();
 
-            return $this->redirectToRoute('app_image_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_fonctionnement_new', [
+                'image' => $image->getId()
+            ], Response::HTTP_SEE_OTHER);
         }
 
         return $this->render('image/edit.html.twig', [
             'image' => $image,
             'form' => $form,
+            'membre_id' => $image->getMembre()->getId()
         ]);
     }
 
