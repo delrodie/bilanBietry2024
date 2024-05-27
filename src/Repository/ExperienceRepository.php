@@ -16,6 +16,31 @@ class ExperienceRepository extends ServiceEntityRepository
         parent::__construct($registry, Experience::class);
     }
 
+    public function getScore($experienceID)
+    {
+        return $this->createQueryBuilder('e')
+            ->select('
+                SUM(CASE WHEN e.q1 = true THEN 1 ELSE 0 END) + 
+                SUM(CASE WHEN e.q2 = true THEN 1 ELSE 0 END) + 
+                SUM(CASE WHEN e.q3 = true THEN 1 ELSE 0 END) + 
+                SUM(CASE WHEN e.q4 = true THEN 1 ELSE 0 END) + 
+                SUM(CASE WHEN e.q5 = true THEN 1 ELSE 0 END) + 
+                SUM(CASE WHEN e.q6 = true THEN 1 ELSE 0 END) + 
+                SUM(CASE WHEN e.q7 = true THEN 1 ELSE 0 END) + 
+                SUM(CASE WHEN e.q8 = true THEN 1 ELSE 0 END) + 
+                SUM(CASE WHEN e.q9 = true THEN 1 ELSE 0 END) + 
+                SUM(CASE WHEN e.q10 = true THEN 1 ELSE 0 END) + 
+                SUM(CASE WHEN e.q11= true THEN 1 ELSE 0 END) + 
+                SUM(CASE WHEN e.q12 = true THEN 1 ELSE 0 END) + 
+                SUM(CASE WHEN e.q13 = true THEN 1 ELSE 0 END) + 
+                SUM(CASE WHEN e.q14 = true THEN 1 ELSE 0 END) + 
+                SUM(CASE WHEN e.q15 = true THEN 1 ELSE 0 END) as checkedCount
+            ')
+            ->where('e.id = :id')
+            ->setParameter('id', $experienceID)
+            ->getQuery()->getSingleScalarResult();
+    }
+
     //    /**
     //     * @return Experience[] Returns an array of Experience objects
     //     */

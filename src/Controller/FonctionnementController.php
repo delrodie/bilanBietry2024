@@ -41,7 +41,9 @@ class FonctionnementController extends AbstractController
             $entityManager->persist($fonctionnement);
             $entityManager->flush();
 
-            $this->utility->addFlag($request->getSession()->get('encours'), 4);
+            $experienceID = $request->getSession()->get('encours');
+            $this->utility->addFlag($experienceID, 4);
+            $request->getSession()->set('final', $experienceID);
 
             return $this->redirectToRoute('app_final_index', [], Response::HTTP_SEE_OTHER);
         }

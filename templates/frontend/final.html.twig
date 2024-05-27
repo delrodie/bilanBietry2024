@@ -18,36 +18,46 @@
                 Votre score
             </h1>
 {#            <h5 class="sous-titre mt-5">Votre score</h5>#}
-            <table class="table table-bordered table-striped table-hover mt-5">
-                <thead>
-                <tr>
-                    <th class="text-center">Catégorie</th>
-                    <th class="text-center">Score</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>Votre expérience au sein du club <span class="total">(/10)</span> </td>
-                    <td class="resultat">7</td>
-                </tr>
-                <tr>
-                    <td>Actions et activités  <span class="total">(/10)</span></td>
-                    <td class="resultat">5</td>
-                </tr>
-                <tr>
-                    <td>Membres  <span class="total">(/10)</span></td>
-                    <td class="resultat">3</td>
-                </tr>
-                <tr>
-                    <td>Images  <span class="total">(/10)</span></td>
-                    <td class="resultat">8</td>
-                </tr>
-                <tr>
-                    <td>Gestion et fonctionnement  <span class="total">(/10)</span></td>
-                    <td class="resultat">6</td>
-                </tr>
-                </tbody>
-            </table>
+            <div class="row">
+                <div class="col-12 col-lg-6 offset-lg-3">
+                    <table class="table table-bordered table-striped table-hover mt-5">
+                        <thead>
+                        <tr>
+                            <th class="text-center">Catégorie</th>
+                            <th class="text-center">Score</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>Votre expérience au sein du club <span class="total">(/15)</span> </td>
+                            <td class="resultat">{{ score.experience }}</td>
+                        </tr>
+                        <tr>
+                            <td>Actions et activités  <span class="total">(/15)</span></td>
+                            <td class="resultat">{{ score.activite }}</td>
+                        </tr>
+                        <tr>
+                            <td>Membres  <span class="total">(/15)</span></td>
+                            <td class="resultat">{{ score.membre }}</td>
+                        </tr>
+                        <tr>
+                            <td>Images  <span class="total">(/15)</span></td>
+                            <td class="resultat">{{ score.image }}</td>
+                        </tr>
+                        <tr>
+                            <td>Gestion et fonctionnement  <span class="total">(/15)</span></td>
+                            <td class="resultat">{{ score.fonctionnement }}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col text-center">
+                    <a href="{{ absolute_url(path('app_home')) }}" class="btn btn-danger">Quitter</a>
+                </div>
+
+            </div>
         </div>
     </main>
 {% endblock %}

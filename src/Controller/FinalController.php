@@ -18,9 +18,13 @@ class FinalController extends AbstractController
     #[Route('/', name: 'app_final_index')]
     public function index(): Response
     {
-//        $this->utility->
-        return $this->render('frontend/final.html.twig',[
-            'final' =>1
-        ]);
+        $statistiques = $this->utility->getStatistiques();
+
+        return
+            $statistiques ?
+                $this->render('frontend/final.html.twig',['score' => $statistiques]) :
+                $this->redirectToRoute('app_home');
+
     }
+
 }

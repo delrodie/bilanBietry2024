@@ -20,7 +20,7 @@ class Utility
         private UrlGeneratorInterface $urlGenerator,
         private ExperienceRepository $experienceRepository,
         private ActiviteRepository $activiteRepository,
-//        private FonctionnementRepository $fonctionnementRepository,
+        private FonctionnementRepository $fonctionnementRepository,
         private MembreRepository $membreRepository,
         private ImageRepository $imageRepository,
         private RequestStack $requestStack,
@@ -91,8 +91,21 @@ class Utility
         return true;
     }
 
-    public function getStatistiques()
+    public function getStatistiques(): bool|array
     {
-        $statistiques = [];
+
+        $experienceID = $this->requestStack->getSession()->get('final');
+
+        if (!$experienceID) return [];
+
+        // Suppression de la session
+        $this->requestStack->getSession()->set('encours', '');
+        return [
+            'experience' => $this->experienceRepository->getScore($experienceID),
+            'activite' => $this->activiteRepository->getScore($experienceID),
+            'membre' => $this->membreRepository->getScore($experienceID),
+            'image' => $this->imageRepository->getScore($experienceID),
+            'fonctionnement' => $this->fonctionnementRepository->getScore($experienceID)
+        ];
     }
 }
