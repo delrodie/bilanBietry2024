@@ -5,6 +5,20 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{% block title %}Rotary Abidjan Bietry{% endblock %}</title>
+        <link rel="icon" href="{{ absolute_url(asset('assets/images/T2425FR-Logo-RGB.png')) }}">
+        <meta name="keywords" content="rotary, bietry, abidjan"  />
+        <meta name="description" content="Je participe au bilan de santé de mon club" />
+
+        {% block meta %}
+            <link rel="canonical" href="{{ absolute_url(path('app_home')) }}" />
+            <meta property="og:locale" content="fr_FR" />
+            <meta property="og:type" content="Item" />
+            <meta property="og:title" content="Bilan de santé du Rotary Club Abidjan Bietry" />
+            <meta property="og:description" content="Je participe au bilan de santé de mon club" />
+            <meta property="og:url" content="{{ absolute_url(path('app_home')) }}" />
+            <meta property="og:site_name" content="ROTARY BIETRY" />
+            <meta property="og:image" content="{{ absolute_url(asset('assets/images/logo-rab_theme.png')) }}" />
+        {% endblock %}
         <link rel="icon" href="">
         {% block stylesheets %}
             <link rel="stylesheet" href="{{ absolute_url(asset('assets/css/app.css')) }}">
