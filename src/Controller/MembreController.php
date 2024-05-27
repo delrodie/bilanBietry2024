@@ -6,6 +6,7 @@ use App\Entity\Membre;
 use App\Form\MembreType;
 use App\Repository\ActiviteRepository;
 use App\Repository\MembreRepository;
+use App\Utility\Utility;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -15,6 +16,10 @@ use Symfony\Component\Routing\Attribute\Route;
 #[Route('/membre')]
 class MembreController extends AbstractController
 {
+    public function __construct(private Utility $utility)
+    {
+    }
+
     #[Route('/', name: 'app_membre_index', methods: ['GET'])]
     public function index(MembreRepository $membreRepository): Response
     {
@@ -35,6 +40,8 @@ class MembreController extends AbstractController
             $membre->setActivite($activiteEntity);
             $entityManager->persist($membre);
             $entityManager->flush();
+
+            $this->utility->addFlag($request->getSession()->get('encours'), 2);
 
             return $this->redirectToRoute('app_image_new', [
                 'membre' => $membre->getId()

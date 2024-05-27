@@ -16,6 +16,16 @@ class MembreRepository extends ServiceEntityRepository
         parent::__construct($registry, Membre::class);
     }
 
+    public function getOneByExperience($experienceId)
+    {
+        return $this->createQueryBuilder('m')
+            ->leftJoin('m.activite', 'a')
+            ->leftJoin('a.experience', 'e')
+            ->where('e.id = :experience')
+            ->setParameter('experience', $experienceId)
+            ->getQuery()->getOneOrNullResult();
+    }
+
     //    /**
     //     * @return Membre[] Returns an array of Membre objects
     //     */

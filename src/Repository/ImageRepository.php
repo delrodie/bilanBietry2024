@@ -16,6 +16,17 @@ class ImageRepository extends ServiceEntityRepository
         parent::__construct($registry, Image::class);
     }
 
+    public function getOneByExperience($experienceID)
+    {
+        return $this->createQueryBuilder('i')
+            ->leftJoin('i.membre', 'm')
+            ->leftJoin('m.activite', 'a')
+            ->leftJoin('a.experience', 'e')
+            ->where('e.id = :experience')
+            ->setParameter('experience', $experienceID)
+            ->getQuery()->getOneOrNullResult();
+    }
+
     //    /**
     //     * @return Image[] Returns an array of Image objects
     //     */

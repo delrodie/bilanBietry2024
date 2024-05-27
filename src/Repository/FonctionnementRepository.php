@@ -16,6 +16,18 @@ class FonctionnementRepository extends ServiceEntityRepository
         parent::__construct($registry, Fonctionnement::class);
     }
 
+    public function getOneByExperience($experienceID)
+    {
+        return $this->createQueryBuilder('f')
+            ->leftJoin('f.image', 'i')
+            ->leftJoin('i.membre', 'm')
+            ->leftJoin('m.activite', 'a')
+            ->leftJoin('a.experience', 'e')
+            ->where('e.id = :experience')
+            ->setParameter('experience', $experienceID)
+            ->getQuery()->getOneOrNullResult();
+    }
+
     //    /**
     //     * @return Fonctionnement[] Returns an array of Fonctionnement objects
     //     */

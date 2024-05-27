@@ -6,6 +6,7 @@ use App\Entity\Fonctionnement;
 use App\Form\FonctionnementType;
 use App\Repository\FonctionnementRepository;
 use App\Repository\ImageRepository;
+use App\Utility\Utility;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -15,6 +16,10 @@ use Symfony\Component\Routing\Attribute\Route;
 #[Route('/fonctionnement')]
 class FonctionnementController extends AbstractController
 {
+    public function __construct(private Utility $utility)
+    {
+    }
+
     #[Route('/', name: 'app_fonctionnement_index', methods: ['GET'])]
     public function index(FonctionnementRepository $fonctionnementRepository): Response
     {
@@ -35,6 +40,8 @@ class FonctionnementController extends AbstractController
             $fonctionnement->setImage($imageEntity); //dd($fonctionnement);
             $entityManager->persist($fonctionnement);
             $entityManager->flush();
+
+            $this->utility->addFlag($request->getSession()->get('encours'), 4);
 
             return $this->redirectToRoute('app_final_index', [], Response::HTTP_SEE_OTHER);
         }

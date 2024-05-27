@@ -5,15 +5,23 @@ namespace App\Controller;
 use App\Entity\Experience;
 use App\Form\ExperienceType;
 use App\Repository\ExperienceRepository;
+use App\Utility\Utility;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Attribute\Route;
 
 #[Route('/experience')]
 class ExperienceController extends AbstractController
 {
+    public function __construct(
+        private Utility $utility,
+    )
+    {
+    }
+
     #[Route('/', name: 'app_experience_index', methods: ['GET'])]
     public function index(ExperienceRepository $experienceRepository): Response
     {
@@ -25,13 +33,20 @@ class ExperienceController extends AbstractController
     #[Route('/new', name: 'app_experience_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
+        // S'il y a une session en cours alors rediriger la page vers cette session
+        $sessionEncours = $this->utility->currentSession();
+        if ($sessionEncours) return $this->redirect($sessionEncours);
+
         $experience = new Experience();
         $form = $this->createForm(ExperienceType::class, $experience);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $experience->setFlag(1);
             $entityManager->persist($experience);
             $entityManager->flush();
+
+            $this->utility->newSession($experience->getId());
 
             return $this->redirectToRoute('app_activite_new', [
                 'experience' => $experience->getId()

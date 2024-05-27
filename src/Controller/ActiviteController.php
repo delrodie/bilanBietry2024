@@ -6,6 +6,7 @@ use App\Entity\Activite;
 use App\Form\ActiviteType;
 use App\Repository\ActiviteRepository;
 use App\Repository\ExperienceRepository;
+use App\Utility\Utility;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -15,6 +16,10 @@ use Symfony\Component\Routing\Attribute\Route;
 #[Route('/activite')]
 class ActiviteController extends AbstractController
 {
+    public function __construct(private Utility $utility)
+    {
+    }
+
     #[Route('/', name: 'app_activite_index', methods: ['GET'])]
     public function index(ActiviteRepository $activiteRepository): Response
     {
@@ -35,6 +40,8 @@ class ActiviteController extends AbstractController
             $activite->setExperience($experienceEntity);
             $entityManager->persist($activite);
             $entityManager->flush();
+
+            $this->utility->addFlag($request->getSession()->get('encours'), 1);
 
             return $this->redirectToRoute('app_membre_new', [
                 'activite' => $activite->getId()
